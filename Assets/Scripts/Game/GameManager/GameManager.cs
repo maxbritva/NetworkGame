@@ -1,4 +1,6 @@
-﻿using Photon.Pun;
+﻿using System;
+using Photon.Pun;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -10,8 +12,11 @@ namespace Game.GameManager
 		[SerializeField] private GameObject _playerPrefab;
 		[SerializeField] private Canvas _canvas;
 		[SerializeField] private Camera _sceneCamera;
+		[SerializeField] private TextMeshProUGUI _pingText;
 
 		private void Awake() => _canvas.gameObject.SetActive(true);
+
+		private void Update() => _pingText.text = "Ping: " + PhotonNetwork.GetPing();
 
 		public void SpawnPlayer()
 		{
