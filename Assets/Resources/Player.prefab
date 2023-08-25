@@ -204,9 +204,13 @@ GameObject:
   - component: {fileID: 129654943618598610}
   - component: {fileID: 1479898754438814662}
   - component: {fileID: 3435752488661965775}
+  - component: {fileID: 1570792726691544619}
+  - component: {fileID: 8321999380940498107}
+  - component: {fileID: 1237410903191178557}
+  - component: {fileID: 6676279212049695337}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Winner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,8 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e4519b67f9409d83d203cf6b5b2efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCamera: {fileID: 6309149536487071811}
   _playerFlip: {fileID: 1479898754438814662}
+  _playerCamera: {fileID: 6309149536487071811}
   _playerAnimator: {fileID: 7644191486973797560}
   _bulletPool: {fileID: 3435752488661965775}
   _speed: 5
@@ -316,6 +320,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 129654943618598610}
+  - {fileID: 6676279212049695337}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -382,6 +387,68 @@ MonoBehaviour:
   _poolBullet: []
   _spawnPointRight: {fileID: 5053403116551563320}
   _spawnPointLeft: {fileID: 7163190041545078581}
+--- !u!114 &1570792726691544619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773889882397342547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e103a9a3149b4701843a40ab518d8013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fillImage: {fileID: 2480610482609872269}
+  _photonView: {fileID: 5093424232635651709}
+  _rigidbody: {fileID: 4110535171419060207}
+  _spriteRendered: {fileID: 679477252245354710}
+  _boxCollider2D: {fileID: 836434522787632077}
+  _playerCanvas: {fileID: 2321842948702598401}
+  _player: {fileID: 2072982808612200941}
+--- !u!114 &8321999380940498107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773889882397342547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _containerSource: 2
+--- !u!114 &1237410903191178557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773889882397342547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a05633b65e648c48e8a6b7297eb3437, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 4110535171419060207}
+  _jumpForce: 700
+--- !u!114 &6676279212049695337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773889882397342547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &2321842948702598401
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -815,8 +882,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000010371208}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 99, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9222464253785823574
 CanvasRenderer:
@@ -846,11 +913,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 7482667652216324306, guid: fba8bb63419a7124d9663394019d834b, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0

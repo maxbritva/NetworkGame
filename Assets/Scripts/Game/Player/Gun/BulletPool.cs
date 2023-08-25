@@ -14,8 +14,6 @@ namespace Game.Player.Gun
 		public Transform SpawnPointRight => _spawnPointRight;
 		public Transform SpawnPointLeft => _spawnPointLeft;
 
-		private void Start() => CreateBullet(_spawnPointRight);
-
 		private GameObject CreateBullet(Transform point)
 		{
 			GameObject newBall = PhotonNetwork.Instantiate(_bulletPrefab.name, new Vector3(
@@ -28,14 +26,12 @@ namespace Game.Player.Gun
 
 		public GameObject GetBulletFromPool(Transform point)
 		{
-			for (int i = 0; i < _poolBullet.Count; i++) 
+			for (int i = 0; i < _poolBullet.Count; i++)
 			{
-				if (_poolBullet[i].gameObject.activeInHierarchy == false)
-				{
-					_poolBullet[i].gameObject.transform.position = point.position;
-					_poolBullet[i].gameObject.SetActive(true);
-					return _poolBullet[i]; 
-				}
+				if (_poolBullet[i].gameObject.activeInHierarchy) continue;
+				_poolBullet[i].gameObject.transform.position = point.position;
+				_poolBullet[i].gameObject.SetActive(true);
+				return _poolBullet[i];
 			}
 			GameObject ball = CreateBullet(point);
 			ball.gameObject.SetActive(true);

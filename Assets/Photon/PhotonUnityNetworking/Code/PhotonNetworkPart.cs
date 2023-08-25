@@ -1843,7 +1843,7 @@ namespace Photon.Pun
             }
 
             // TODO: re-check if ownership needs to be adjusted based on updates.
-            // most likely, only the PhotonView.Controller should be affected, if anything at all.
+            // most likely, only the PhotonView.UIPlayer should be affected, if anything at all.
             // TODO: find a way to sync the owner of a PV for late joiners.
 
             //// This is when joining late to assign ownership to the sender

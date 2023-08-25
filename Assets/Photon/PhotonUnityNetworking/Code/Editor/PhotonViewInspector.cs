@@ -88,7 +88,7 @@ namespace Photon.Pun
                 Player cretr = (room != null) ? room.GetPlayer(cretrId) : null;
                 Player owner = this.m_Target.Owner;
                 Player ctrlr = this.m_Target.Controller;
-                EditorGUILayout.LabelField("Controller:", (ctrlr != null ? ("[" + ctrlr.ActorNumber + "] '" + ctrlr.NickName + "' " + (ctrlr.IsMasterClient ? " (master)" : "")) : "[0] <null>"));
+                EditorGUILayout.LabelField("UIPlayer:", (ctrlr != null ? ("[" + ctrlr.ActorNumber + "] '" + ctrlr.NickName + "' " + (ctrlr.IsMasterClient ? " (master)" : "")) : "[0] <null>"));
                 EditorGUILayout.LabelField("Owner:", (owner != null ? ("[" + owner.ActorNumber + "] '" + owner.NickName + "' " + (owner.IsMasterClient ? " (master)" : "")) : "[0] <null>"));
                 EditorGUILayout.LabelField("Creator:", (cretr != null ? ("[" +cretrId + "] '" + cretr.NickName + "' " + (cretr.IsMasterClient ? " (master)" : "")) : "[0] <null>"));
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using Photon.Pun;
 using UnityEngine;
 
@@ -11,6 +10,7 @@ namespace Game.Player.Gun
 		[SerializeField] private PhotonView _photonView;
 		private WaitForSeconds _hideTime = new WaitForSeconds(2f);
 		private bool _movingDirection;
+		private float _damage = 0.25f;
 
 		private void Update()
 		{
@@ -37,8 +37,10 @@ namespace Game.Player.Gun
 			if (photonView.IsMine == false)
 				return;
 			PhotonView target = col.GetComponent<PhotonView>();
-			if (target != null && (target.IsMine == false || target.IsRoomView))
-				_photonView.RPC("Hide", RpcTarget.AllBuffered);
+			if (target == null || (target.IsMine && target.IsRoomView == false)) return;
+			if (target.TryGetComponent(out Player player))
+				target.RPC("HealthBarUpdate", RpcTarget.AllBuffered, _damage);
+			_photonView.RPC("Hide", RpcTarget.AllBuffered);
 		}
 	}
 }

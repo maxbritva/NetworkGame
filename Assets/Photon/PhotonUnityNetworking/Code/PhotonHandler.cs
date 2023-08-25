@@ -394,7 +394,7 @@ namespace Photon.Pun
 
                 foreach (var view in views)
                 {
-                    // Skip changing Owner/Controller for items that will be cleaned up.
+                    // Skip changing Owner/UIPlayer for items that will be cleaned up.
                     if (autocleanup && view.CreatorActorNr == leavingPlayerId)
                         continue;
 

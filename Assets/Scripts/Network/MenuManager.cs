@@ -1,10 +1,8 @@
-﻿using System;
-using Photon.Pun;
+﻿using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
 namespace Network
 {

@@ -18,7 +18,7 @@ using Hashtable = ExitGames.Client.Photon.Hashtable;
 namespace Photon.Pun.Demo.Cockpit
 {
     /// <summary>
-    /// Controller for the Playerdetails UI view
+    /// UIPlayer for the Playerdetails UI view
     /// </summary>
     public class PlayerDetailsController : MonoBehaviourPunCallbacks
     {
